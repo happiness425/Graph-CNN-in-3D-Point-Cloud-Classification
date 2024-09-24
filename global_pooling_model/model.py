@@ -24,7 +24,7 @@ def model_architecture(para):
     gcn_1_output = tf.nn.dropout(gcn_1, keep_prob=keep_prob_1)
     gcn_1_pooling = globalPooling(gcn_1_output, featureNumber=para.gcn_1_filter_n)
     print("The output of the first gcn layer is {}".format(gcn_1_pooling))
-    print gcn_1_pooling
+    print (gcn_1_pooling)
 
     # gcn_layer_2
     
@@ -136,7 +136,7 @@ def trainOneEpoch(inputCoor, inputGraph, inputLabel, para, sess, trainOperaion, 
             elif para.weighting_scheme == 'weighted':
                 batchWeight = weights_calculation(batchLabel, weight_dict)
             else:
-                print 'please enter the valid weighting scheme'
+                print ('please enter the valid weighting scheme')
 	        
 	    #print batchWeight
 
