@@ -7,7 +7,7 @@ class Parameters():
         self.pointNumber = 1024
         self.gcn_1_filter_n = 1000
         self.gcn_2_filter_n = 1000
-	self.gcn_3_filter_n = 1000
+        self.gcn_3_filter_n = 1000
         self.fc_1_n = 600
         self.chebyshev_1_Order = 4
         self.chebyshev_2_Order = 3
@@ -15,7 +15,7 @@ class Parameters():
         self.keep_prob_2 = 0.55
         self.batchSize = 28
         self.testBatchSize = 1
-	self.max_epoch = 260
+        self.max_epoch = 260
         self.learningRate = 12e-4
         self.dataset = 'ModelNet40'
         self.weighting_scheme = 'weighted'
