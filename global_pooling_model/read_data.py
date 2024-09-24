@@ -80,15 +80,15 @@ def prepareGraph(inputData, neighborNumber, pointNumber, dataType):
     elif para.dataset == 'ModelNet10':
         fileDir =  baseDir+ '/graph_ModelNet10/' + dataType+'_pn_'+str(pointNumber)+'_nn_'+str(neighborNumber)
     else:
-        print "Please enter a valid dataset"
+        print ("Please enter a valid dataset")
         
     if (not os.path.isdir(fileDir)):
-        print "calculating the graph data"
+        print ("calculating the graph data")
         os.makedirs(fileDir)
         for batchIndex in range(len(inputData)):
             batchInput = inputData[batchIndex]
             for i in range(len(batchInput)):
-                print i
+                print (i)
                 pcCoordinates = batchInput[i]
                 tree = cKDTree(pcCoordinates)
                 dd, ii = tree.query(pcCoordinates, k = neighborNumber)
@@ -102,7 +102,7 @@ def prepareGraph(inputData, neighborNumber, pointNumber, dataType):
             scaledLaplacianDict.update({batchIndex: batchFlattenLaplacian})
             with open(fileDir+'/batchGraph_'+str(batchIndex), 'wb') as handle:
                 pickle.dump(batchFlattenLaplacian, handle)
-            print "Saving the graph data batch"+str(batchIndex)
+            print ("Saving the graph data batch"+str(batchIndex))
         
     else:
         print("Loading the graph data from "+dataType+'Data')
@@ -117,7 +117,7 @@ def loadGraph(inputData, neighborNumber, pointNumber, fileDir):
         with open(batchDataDir, 'rb') as handle:
             batchGraph = pickle.load(handle)
         scaledLaplacianDict.update({batchIndex: batchGraph })
-        print "Finish loading batch_"+str(batchIndex)
+        print ("Finish loading batch_"+str(batchIndex))
     return scaledLaplacianDict
         
                         
