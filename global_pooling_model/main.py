@@ -40,7 +40,7 @@ with tf.Graph().as_default():
             a = pickle.load(handle)
         inputTrain, trainLabel, inputTest, testLabel = a 
     else:
-        print ("Please enter a valid dataset")
+        print("Please enter a valid dataset")
     scaledLaplacianTrain, scaledLaplacianTest = prepareData(inputTrain, inputTest, neighborNumber, pointNumber)
 
     # ===============================Train model ================================
